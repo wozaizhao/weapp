@@ -1,0 +1,42 @@
+<template>
+  <div class="news">
+      <view>news</view>
+      基本用法
+
+        <i-tab-bar fixed="true" color="#0a7436" current="{{ current }}" bindchange="handleChange">
+          <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage_fill" title="首页"></i-tab-bar-item>
+          <i-tab-bar-item i-class="item-center" key="group" img="../../../assets/1.svg" current-img="../../../assets/2.svg" title="公司简介"></i-tab-bar-item>
+          <i-tab-bar-item key="barrage" icon="barrage" current-icon="barrage_fill" count="3" title="产品"></i-tab-bar-item>
+          <i-tab-bar-item key="browse" icon="browse" current-icon="browse_fill" count="3" title="案例"></i-tab-bar-item>
+          <i-tab-bar-item key="mine" icon="mine" current-icon="mine_fill" dot title="联系我们"></i-tab-bar-item>
+      </i-tab-bar>
+
+  </div>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class News extends wepy.page {
+  config = {
+    usingComponents: {
+    "i-tab-bar": "../components/iview/tab-bar/index",
+    "i-tab-bar-item": "../components/iview/tab-bar-item/index"
+}
+  };
+  data ={
+    current: 'homepage'
+  };
+  methods ={};
+  events ={};
+  onLoad(){
+
+  };
+}
+</script>
+
+<style>
+.item-center{
+  text-align:center;
+}
+</style>
