@@ -1,0 +1,67 @@
+<template>
+  <div class="news">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image"/>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
+        <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
+        <i-tab-bar-item key="about" icon="about" current-icon="about" title="模卡科技"></i-tab-bar-item>
+        <i-tab-bar-item key="product" icon="product" current-icon="product" title="模卡彻块"></i-tab-bar-item>
+        <i-tab-bar-item key="building" icon="building" current-icon="building" title="案例"></i-tab-bar-item>
+        <i-tab-bar-item key="contact" icon="contact" current-icon="contact" title="联系我们"></i-tab-bar-item>
+      </i-tab-bar>
+
+  </div>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class Homepage extends wepy.page {
+  config = {
+    usingComponents: {
+      'i-tab-bar': '../../components/iview/tab-bar/index',
+      'i-tab-bar-item': '../../components/iview/tab-bar-item/index'
+    },
+    navigationBarTitleText: '上海模卡建筑工程科技发展有限公司'
+  };
+  data = {
+    current: 'homepage',
+    imgUrls: [
+      'https://static.thecoins.top/wzz/banner2.jpg',
+      'https://static.thecoins.top/wzz/banner1.jpg'
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    circular: true,
+    interval: 5000,
+    duration: 1000
+  };
+  methods = {
+    handleChange({ detail }) {
+      this.$redirect('/pages/' + detail.key);
+    }
+  };
+  events = {};
+  onLoad() {}
+}
+</script>
+
+<style>
+.item-center {
+  text-align: center;
+}
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+swiper {
+  height: 200px;
+}
+</style>

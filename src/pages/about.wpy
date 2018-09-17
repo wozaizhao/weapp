@@ -1,0 +1,51 @@
+<template>
+  <div class="about">
+
+      <view>
+          <i-tabs current="{{ current }}" bindchange="handleChange">
+            <i-tab key="tab1" title="选项1"></i-tab>
+            <i-tab key="tab2" title="选项2"></i-tab>
+            <i-tab key="tab3" title="选项3"></i-tab>
+          </i-tabs>
+          上海模卡建筑工程科技发展有限公司通过与同济大学、上海市房屋建筑设计院有限公司“产学研”合作，专业从事新型墙体材料研发、生产、销售及技术推广一体化的科技股份公司，主产品混凝土模卡砌块，吸取了美国新技术理念，申请了多项国家专利及模卡砌块注册商标。公司根据国家产业政策，借鉴国际先进技术和管理经验，提高自主创新能力，突破制约新型墙材、建筑节能发展的关键技术，形成具有自主知识产权的技术体系和标准体系。推动新型绿色节能创新成果工程化应用，引导新型墙体材料革新和建筑节能产业化的发展。
+          公司秉承“以人为本”的管理模式，推行质量第一的理念，坚持以质取胜的发展战略，致力于墙体材料的生产和市场开拓。
+      </view>
+      <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
+        <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
+        <i-tab-bar-item key="about" icon="about" current-icon="about" title="模卡科技"></i-tab-bar-item>
+        <i-tab-bar-item key="product" icon="product" current-icon="product" title="模卡彻块"></i-tab-bar-item>
+        <i-tab-bar-item key="building" icon="building" current-icon="building" title="案例"></i-tab-bar-item>
+        <i-tab-bar-item key="contact" icon="contact" current-icon="contact" title="联系我们"></i-tab-bar-item>
+      </i-tab-bar>
+  </div>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class About extends wepy.page {
+  config = {
+    usingComponents: {
+      'i-tabs': '../../components/iview/tabs/index',
+      'i-tab': '../../components/iview/tab/index',
+      'i-tab-bar': '../../components/iview/tab-bar/index',
+      'i-tab-bar-item': '../../components/iview/tab-bar-item/index'
+    },
+    navigationBarTitleText: '上海模卡建筑工程科技发展有限公司'
+  };
+
+  data = {
+    current: 'about'
+  };
+
+  methods = {
+    handleChange({ detail }) {
+      this.$redirect('/pages/' + detail.key);
+    }
+  };
+}
+</script>
+
+<style>
+</style>
+
