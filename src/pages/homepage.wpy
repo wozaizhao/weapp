@@ -4,7 +4,7 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{imgUrls}}" wx:key="{{imgUrls}}">
           <swiper-item>
-            <image src="{{item}}" class="slide-image"/>
+            <image src="{{item}}" class="slide-image" mode="widthFix"/>
           </swiper-item>
         </block>
       </swiper>
@@ -59,9 +59,8 @@ export default class Homepage extends wepy.page {
 }
 .slide-image {
   width: 100%;
-  height: 100%;
 }
 swiper {
-  height: 200px;
+  height: 350rpx;
 }
 </style>

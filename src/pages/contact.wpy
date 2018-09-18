@@ -1,6 +1,10 @@
 <template>
   <div class="contact">
-
+      <image style="width:100%" mode="widthFix" src="https://static.thecoins.top/wzz/banner2.jpg" />
+      
+      <i-panel title="地址 | Address" hide-border i-class="nopadding">
+          <view style="padding: 15px;">上海市大渡河路658号8幢1楼</view>
+      </i-panel>      
 
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
@@ -19,7 +23,9 @@ export default class Contact extends wepy.page {
   config = {
     usingComponents: {
       'i-tab-bar': '../../components/iview/tab-bar/index',
-      'i-tab-bar-item': '../../components/iview/tab-bar-item/index'
+      'i-tab-bar-item': '../../components/iview/tab-bar-item/index',
+      "i-icon": "../../components/iview/icon/index",
+      "i-panel": "../../components/iview/panel/index",
     },
     navigationBarTitleText: '上海模卡建筑工程科技发展有限公司'
   };
@@ -37,5 +43,8 @@ export default class Contact extends wepy.page {
 </script>
 
 <style>
+.nopadding .i-panel-title{
+  padding: 0!important;
+}
 </style>
 
