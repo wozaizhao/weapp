@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+           <image style="width:100%" mode="widthFix" src="https://static.thecoins.top/wzz/door.jpg" />
 
       <view>
         <!-- <i-tab-bar current="{{ currenttop }}" color="#0a7436" bindchange="handleChange">
@@ -8,10 +9,11 @@
           <i-tab-bar-item key="culture" icon="culture" current-icon="culture" title="企业文化"></i-tab-bar-item>
        </i-tab-bar> -->
        
+       <view class="intro">
        
           上海模卡建筑工程科技发展有限公司通过与同济大学、上海市房屋建筑设计院有限公司“产学研”合作，专业从事新型墙体材料研发、生产、销售及技术推广一体化的科技股份公司，主产品混凝土模卡砌块，吸取了美国新技术理念，申请了多项国家专利及模卡砌块注册商标。公司根据国家产业政策，借鉴国际先进技术和管理经验，提高自主创新能力，突破制约新型墙材、建筑节能发展的关键技术，形成具有自主知识产权的技术体系和标准体系。推动新型绿色节能创新成果工程化应用，引导新型墙体材料革新和建筑节能产业化的发展。
           公司秉承“以人为本”的管理模式，推行质量第一的理念，坚持以质取胜的发展战略，致力于墙体材料的生产和市场开拓。
-             
+       </view>      
           
       </view>
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
@@ -53,6 +55,10 @@ export default class About extends wepy.page {
 <style>
 .toptab{
   font-size: 28px;
+}
+.intro{
+  font-size: 12px;
+  padding: 10px;
 }
 </style>
 

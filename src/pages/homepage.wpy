@@ -8,6 +8,10 @@
           </swiper-item>
         </block>
       </swiper>
+      
+      <!-- <view class="video-section">
+      <video id="video" objectFit="cover" src="http://video.thecoins.top/11.mp4"></video>
+      </view> -->
 
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
@@ -62,5 +66,11 @@ export default class Homepage extends wepy.page {
 }
 swiper {
   height: 350rpx;
+}
+.video-section{
+  padding: 10px;
+}
+#video{
+  width: 100%;
 }
 </style>

@@ -1,7 +1,13 @@
 <template>
   <div class="building">
-
-      building
+ 
+<image style="width:100%" mode="widthFix" src="https://static.thecoins.top/wzz/banner4.jpg" />
+      <repeat for="{{case}}" key="index" index="index" item="item">
+          <card :title="item.title" :thumb="item.img">
+            <text slot="footer">{{item.title}}</text>
+          </card>
+        </repeat>
+      
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
         <i-tab-bar-item key="about" icon="about" current-icon="about" title="模卡科技"></i-tab-bar-item>
@@ -14,6 +20,7 @@
 
 <script>
 import wepy from 'wepy';
+import Card from '@/components/card';
 
 export default class Building extends wepy.page {
   config = {
@@ -25,7 +32,25 @@ export default class Building extends wepy.page {
   };
 
   data = {
-    current: 'building'
+    current: 'building',
+    case: [
+      {
+        title: '松江佘山北50A-01A号地块',
+        img: 'https://static.thecoins.top/wzz/case.jpg'
+      },
+      {
+        title: '上海松江永丰大居',
+        img: 'https://static.thecoins.top/wzz/case.jpg'
+      },
+      {
+        title: '上海松江佘北48-02地块',
+        img: 'https://static.thecoins.top/wzz/case.jpg'
+      }
+    ]
+  };
+
+  components = {
+    card: Card
   };
 
   methods = {
@@ -37,5 +62,6 @@ export default class Building extends wepy.page {
 </script>
 
 <style>
+
 </style>
 

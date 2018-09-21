@@ -1,4 +1,6 @@
 <style lang="less">
+@import './assets/iconfont/iconfont.less';
+@import './assets/styles/_base.less';
 .container {
   height: 100%;
   display: flex;
@@ -6,6 +8,15 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+}
+.primary-color{
+  color: @primary-color;
+}
+.d-flex {
+  display: flex;
+}
+.flex {
+  flex: 1;
 }
 </style>
 
@@ -15,7 +26,14 @@ import 'wepy-async-function';
 
 export default class extends wepy.app {
   config = {
-    pages: ['pages/homepage', 'pages/about',  'pages/product',  'pages/building',  'pages/contact', 'pages/test'],
+    pages: [
+      'pages/homepage',
+      'pages/about',
+      'pages/product',
+      'pages/building',
+      'pages/contact',
+      'pages/test'
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',

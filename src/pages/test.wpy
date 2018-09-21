@@ -253,7 +253,7 @@ export default class Index extends wepy.page {
       env:"master-ec990c"
     })
     const db = wx.cloud.database()
-    db.collection("org").get().then(res => {
+    db.collection("contact").get().then(res => {
       console.log(res.data)
     })
     // wx.cloud
