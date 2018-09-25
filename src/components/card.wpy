@@ -24,8 +24,9 @@
         align-items: center;
 
         &-content{
-            flex: 1;
+            display: flex;
             text-align: left;
+            align-items:center;
         }
 
         &-thumb{
@@ -65,12 +66,6 @@
         }
     }
 
-    &-footer{
-        position: relative;
-        padding: 6px 16px;
-        color: @subsidiary-color;
-        font-size: @size-font-small;
-    }
 }
 </style>
 
@@ -79,7 +74,7 @@
     <view class="i-class i-card-header">
         <view class="i-card-header-content">
             <image class="i-card-header-thumb" src="{{ thumb }}" mode="aspectFit" wx:if="{{ thumb }}" />
-            {{ title }}
+            <text>{{ title }}</text>
         </view>
         <view class="i-card-header-extra" wx:if="{{ extra }}">{{ extra }}</view>
     </view>
