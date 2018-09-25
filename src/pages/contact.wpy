@@ -1,27 +1,18 @@
 <template>
   <view class="contact">
-      <image style="width:100%" mode="widthFix" src="https://static.thecoins.top/wzz/door.jpg" />
-      <panela title="地址 | Address" icon="homepage">
+      <image style="width:100%" mode="widthFix" src="http://static.mokabrick.cn/banner/door.jpg" />
+      <panela title="地址 | Address">
         <view class="d-flex">
-          <text class="flex">上海市大渡河路658号8幢1楼</text>
+          <text class="flex">{{contact.address.value}}</text>
           <text @tap="goThere" class="lg icon icon-location primary-color"></text>
         </view>
       </panela>    
-      <panelp title="电话 | Phone" icon="homepage">
+      <panelp title="电话 | Phone">
         <view class="d-flex">
-          <text class="flex">400-862-0089</text>
+          <text class="flex">{{contact.phone.value}}</text>
           <text @tap="callPhone" class="lg icon icon-call primary-color"></text>
         </view>
       </panelp>   
-
-      <!-- <repeat for="{{datas}}" key="index" index="index" item="item">
-          <panel :title="item.title">
-        <view class="d-flex">
-          <text class="flex">{{item.value}}</text>
-          <text @tap="callPhone" class="lg icon icon-call primary-color"></text>
-        </view>
-      </panel>   
-        </repeat> -->
       
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
@@ -53,7 +44,14 @@ export default class Contact extends wepy.page {
 
   data = {
     current: 'contact',
-    // datas:{}
+    contact:{
+      "address":{
+        "value":"上海市大渡河路658号8幢1楼"
+      },
+      "phone":{
+        "value":"400-862-0089"
+      }
+    }
   };
 
   methods = {
@@ -83,13 +81,14 @@ export default class Contact extends wepy.page {
   };
 
   onLoad(){
+    // var that = this;
     // wx.cloud.init({
     //   env:"master-ec990c"
     // })
     // const db = wx.cloud.database()
     // db.collection("contact").get().then(res => {
-    //   console.log(res)
-    //   this.datas = res.data;
+    //   console.log(res.data[0])
+    //   that.contact = res.data[0];
     // })
   }
 }

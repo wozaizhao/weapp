@@ -1,13 +1,15 @@
 <template>
   <div class="building">
- 
-<image style="width:100%" mode="widthFix" src="https://static.thecoins.top/wzz/banner4.jpg" />
+<image style="width:100%" mode="widthFix" src="http://static.mokabrick.cn/banner/banner.jpg" />
+      <div class="list">
+
       <repeat for="{{case}}" key="index" index="index" item="item">
-          <card :title="item.title" :thumb="item.img">
-            <text slot="footer">{{item.title}}</text>
-          </card>
-        </repeat>
-      
+        <card :title="item.title" :thumb="item.img">
+          <!-- <text slot="footer">{{item.title}}</text> -->
+        </card>
+      </repeat>
+
+      </div>
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
         <i-tab-bar-item key="about" icon="about" current-icon="about" title="模卡科技"></i-tab-bar-item>
@@ -35,16 +37,84 @@ export default class Building extends wepy.page {
     current: 'building',
     case: [
       {
-        title: '松江佘山北50A-01A号地块',
-        img: 'https://static.thecoins.top/wzz/case.jpg'
+        title:'上海北蔡御桥商业广场项目',
+        img: 'http://static.mokabrick.cn/case/0000.jpg'
       },
       {
-        title: '上海松江永丰大居',
-        img: 'https://static.thecoins.top/wzz/case.jpg'
+        title:'江苏海安县行政事业中心',
+        img: 'http://static.mokabrick.cn/case/0001.jpg'
       },
       {
-        title: '上海松江佘北48-02地块',
-        img: 'https://static.thecoins.top/wzz/case.jpg'
+        title:'九江市濂溪区浔南小区项目',
+        img: 'http://static.mokabrick.cn/case/0002.jpg'
+      },
+      {
+        title:'九江市濂溪区临港新城C区四期项目',
+        img: 'http://static.mokabrick.cn/case/0003.jpg'
+      },
+      {
+        title:'九江市濂溪区浔南片区八里坡二期工程',
+        img: 'http://static.mokabrick.cn/case/0004.jpg'
+      },
+      {
+        title:'上海松江佘北4802地块',
+        img: 'http://static.mokabrick.cn/case/0005.jpg'
+      },
+      {
+        title:'上海松江永丰大居',
+        img: 'http://static.mokabrick.cn/case/0006.jpg'
+      },
+      {
+        title:'浙江湖州多媒体产业园',
+        img: 'http://static.mokabrick.cn/case/0007.jpg'
+      },
+      {
+        title:'权健集团华东总部',
+        img: 'http://static.mokabrick.cn/case/0008.jpg'
+      },
+      {
+        title:'江西九江市濂溪区老年大学',
+        img: 'http://static.mokabrick.cn/case/0009.jpg'
+      },
+      {
+        title:'浦东泥城社区卫生中心',
+        img: 'http://static.mokabrick.cn/case/0010.jpg'
+      },
+      {
+        title:'上海对外贸易大学附属松江实验学校',
+        img: 'http://static.mokabrick.cn/case/0011.jpg'
+      },
+      {
+        title:'上海复旦大学附属中学青浦学校',
+        img: 'http://static.mokabrick.cn/case/0012.jpg'
+      },
+      {
+        title:'上海金山小学改扩建工程',
+        img: 'http://static.mokabrick.cn/case/0013.jpg'
+      },
+      {
+        title:'上海实验学校附属东滩学校',
+        img: 'http://static.mokabrick.cn/case/0014.jpg'
+      },
+      {
+        title:'上海外贸学院古北校区',
+        img: 'http://static.mokabrick.cn/case/0015.jpg'
+      },
+      {
+        title:'上海秀野庭院养老院',
+        img: 'http://static.mokabrick.cn/case/0016.jpg'
+      },
+      {
+        title:'四川广元市黄冈学校',
+        img: 'http://static.mokabrick.cn/case/0017.jpg'
+      },
+      {
+        title:'松江区泗泾学校',
+        img: 'http://static.mokabrick.cn/case/0018.jpg'
+      },
+      {
+        title:'浙江新昌南瑞实验学校',
+        img: 'http://static.mokabrick.cn/case/0019.jpg'
       }
     ]
   };
@@ -62,6 +132,9 @@ export default class Building extends wepy.page {
 </script>
 
 <style>
-
+.list{
+  display:block;
+  padding-bottom: 60px;
+}
 </style>
 
