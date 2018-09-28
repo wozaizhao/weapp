@@ -1,6 +1,14 @@
 <template>
   <div class="product">
+    <div class="list">
+<image style="width:100%" mode="widthFix" src="http://static.mokabrick.cn/banner/banner4.jpg" />
+      <repeat for="{{product}}" key="index" index="index" item="item">
+        <card :title="item.title" :thumb="item.img">
+          <!-- <text slot="footer">{{item.title}}</text> -->
+        </card>
+      </repeat>
 
+      </div>
 
       <i-tab-bar current="{{ current }}" fixed color="#0a7436" bindchange="handleChange">
         <i-tab-bar-item key="homepage" icon="homepage" current-icon="homepage" title="首页"></i-tab-bar-item>
@@ -14,6 +22,7 @@
 
 <script>
 import wepy from 'wepy';
+import Card from '@/components/card';
 
 export default class Product extends wepy.page {
   config = {
@@ -25,7 +34,37 @@ export default class Product extends wepy.page {
   };
 
   data = {
-    current: 'product'
+    current: 'product',
+    product: [
+      {
+        title:'普通模卡砌块120系列',
+        img: 'http://static.mokabrick.cn/product/0000.jpg'
+      },
+      {
+        title:'普通模卡砌块200系列',
+        img: 'http://static.mokabrick.cn/product/0001.jpg'
+      },
+      {
+        title:'自保温模卡砌块225、240系列',
+        img: 'http://static.mokabrick.cn/product/0002.jpg'
+      },
+      {
+        title:'自保温模卡砌块225、240系列',
+        img: 'http://static.mokabrick.cn/product/0003.jpg'
+      },
+      {
+        title:'配筋模卡砌块260系列',
+        img: 'http://static.mokabrick.cn/product/0004.jpg'
+      },
+      {
+        title:'装配式模卡砌块墙体',
+        img: 'http://static.mokabrick.cn/product/0005.jpg'
+      }
+    ]
+  };
+
+  components = {
+    card: Card
   };
 
   methods = {
@@ -37,5 +76,9 @@ export default class Product extends wepy.page {
 </script>
 
 <style>
+.list{
+  display:block;
+  padding-bottom: 60px;
+}
 </style>
 
