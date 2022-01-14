@@ -1,6 +1,11 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/login/index",
+    "pages/index/index",
+    "pages/me/index",
+    "pages/profile/avatar",
+    "pages/profile/profile",
+    "pages/profile/update"
   ],
   "window": {
     "backgroundTextStyle": "light",

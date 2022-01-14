@@ -13,5 +13,8 @@
     "prettier": "^2.5.1"
   },
   "author": "xchao0213@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
 }
