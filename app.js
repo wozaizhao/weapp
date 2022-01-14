@@ -10,12 +10,11 @@ App({
     // 登录
     wx.login({
       success: (loginRes) => {
-        console.log(loginRes);
         code2Session({ code: loginRes.code }).then((sessionRes) => {
-          console.log(sessionRes);
           if (sessionRes.errcode === 0) {
             console.log(sessionRes.openid);
             console.log(sessionRes.session_key);
+            this.globalData.openID = sessionRes.openid;
             this.globalData.sessionKey = sessionRes.session_key;
             //   const session_key = sessionRes.session_key;
             //   wx.getUserInfo({
@@ -38,6 +37,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    openID: null,
     sessionKey: null,
   },
 });
