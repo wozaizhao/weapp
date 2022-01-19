@@ -1,7 +1,7 @@
 // pages/login/index.js
 const computedBehavior = require('miniprogram-computed').behavior;
 import { requestCaptcha, login } from '../../api/user';
-import { wxRedirectTo } from '../../api/wechat';
+import { wxRedirectTo, wxNavigateBack } from '../../api/wechat';
 Page({
   behaviors: [computedBehavior],
   /**
@@ -80,7 +80,13 @@ Page({
         submiting: false,
       });
       if (status === 'success') {
-        await wxRedirectTo({ url: '/pages/index/index' });
+        if (this.method === 'back') {
+          await wxNavigateBack();
+        } else if (this.method === 'redirect') {
+          await wxNavigateTo({ url: `/pages/${this.url}/index` })
+        } else {
+          await wxRedirectTo({ url: '/pages/index/index' });
+        }
       }
     } catch (e) {
       console.log('submit login catch error: ' + e);
@@ -90,7 +96,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    const { method, url } = options;
+    this.method = method;
+    this.url = url;
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

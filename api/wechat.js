@@ -21,7 +21,7 @@ export const wxRequest = promisify(wx.request);
 
 export const wxNavigateTo = promisify(wx.navigateTo);
 export const wxRedirectTo = promisify(wx.redirectTo);
-
+export const wxNavigateBack = promisify(wx.navigateBack);
 export const code2Session = async (data) => {
   const endpoint = '/wechat/code2Session';
   const r = await endpointFetch(endpoint, 'post', data);
