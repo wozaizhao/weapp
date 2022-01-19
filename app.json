@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/login/index",
-    "pages/index/index",
     "pages/me/index",
+    "pages/index/index",
+    "pages/login/index",
     "pages/profile/avatar",
     "pages/profile/profile",
     "pages/profile/update"
@@ -13,7 +13,6 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }

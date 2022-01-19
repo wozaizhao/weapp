@@ -1,14 +1,29 @@
-import request from '../utils/request';
+import { endpointFetch } from './request';
 
-function code2Session(data) {
-    return request('/wechat/code2Session', 'post', data);
+function promisify(fn) {
+  return async function (args) {
+    return new Promise((resolve, reject) => {
+      fn({
+        ...(args || {}),
+        success: (res) => resolve(res),
+        fail: (err) => reject(err),
+      });
+    });
+  };
 }
 
-function decryptUserInfo(data) {
-    return request('/wechat/decryptUserInfo', 'post', data);
-}
+export const wxSetStorage = promisify(wx.setStorage);
+export const wxGetStorage = promisify(wx.getStorage);
+export const wxRemoveStorage = promisify(wx.removeStorage);
 
-module.exports = {
-    code2Session,
-    decryptUserInfo,
+export const wxLogin = promisify(wx.login);
+export const wxRequest = promisify(wx.request);
+
+export const wxNavigateTo = promisify(wx.navigateTo);
+export const wxRedirectTo = promisify(wx.redirectTo);
+
+export const code2Session = async (data) => {
+  const endpoint = '/wechat/code2Session';
+  const r = await endpointFetch(endpoint, 'post', data);
+  return r.data;
 };

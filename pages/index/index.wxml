@@ -15,4 +15,5 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <tabbar active="home"></tabbar>
 </view>

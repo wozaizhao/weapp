@@ -1,2 +1,48 @@
-<!--pages/login/index.wxml-->
-<text>pages/login/index.wxml</text>
+<page-meta root-font-size="37.5px" />
+<view class="w-screen h-screen bg-white pt-5">
+  <van-cell-group inset border="{{ false }}">
+    <van-field
+      model:value="{{ phone }}"
+      maxlength="11"
+      type="digit"
+      clearable
+      bind:clear="onPhoneClear"
+      placeholder="输入手机号(新号码自动注册)"
+    />
+    <van-field
+      model:value="{{ code }}"
+      maxlength="6"
+      type="digit"
+      center
+      placeholder="输入验证码"
+      use-button-slot
+    >
+      <van-button slot="button" disabled="{{!sendReady}}" size="small" bind:click="onGetCaptcha" type="primary"
+        >{{ captchaText }}
+      </van-button>
+    </van-field>
+  </van-cell-group>
+  <view style="margin: 16px">
+    <van-button
+      round
+      block
+      loading="{{submiting}}"
+      loading-text="登录中..."
+      type="primary"
+      disabled="{{!submitReady}}"
+      bind:click="submit"
+    >
+      登录
+    </van-button>
+  </view>
+  <view class="fixed w-full bottom-0 text-center text-gray-400">
+    <view class="p-2">
+      <text>登录注册即代表你同意 我在找</text>
+      <text class="text-cyan-700">《服务协议》</text>
+      与
+      <text class="text-cyan-700">《隐私政策》</text>
+      <view>未注册用户将直接为你创建帐户</view>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+</view>

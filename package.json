@@ -15,6 +15,7 @@
   "author": "xchao0213@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@vant/weapp": "^1.10.2"
+    "@vant/weapp": "^1.10.2",
+    "miniprogram-computed": "^4.3.4"
   }
 }
