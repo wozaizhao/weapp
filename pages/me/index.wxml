@@ -1,8 +1,8 @@
 <page-meta root-font-size="37.5px" />
-
+<wxs src="../../utils/util.wxs" module="util"></wxs>
 <view class="profile">
-  <view wx:if="{{isLoggedIn}}" class="flex bg-white items-center py-2 px-3" bind:tap="goTo('profile')">
-    <van-image round width="2rem" height="2rem" :src="{{imgURL(activeUser.avatarUrl) || config.defaultAvatar}}" />
+  <view wx:if="{{isLoggedIn}}" class="flex bg-white items-center py-2 px-3" bind:tap="toProfile">
+    <van-image round width="2rem" height="2rem" src="{{util.imgURL(activeUser.avatarUrl) || config.defaultAvatar}}" />
     <view class="ml-2 w-20 flex-1 flex flex-col">
       <text class="text-base text-gray-900 truncate">{{ activeUser.nickname }}</text>
       <text class="text-sm text-gray-400 mt-1 truncate">{{ activeUser.bio || config.defaultBio }}</text>
@@ -26,7 +26,7 @@
     <van-cell title="单元格" is-link value="内容" />
   </van-cell-group>
   <view class="p-2" wx:if="{{isLoggedIn}}">
-    <van-button plain round block type="primary" bind:tap="logout">退出</van-button>
+    <van-button plain round block type="primary" bind:click="logout">退出</van-button>
   </view>
   <tabbar active="me"></tabbar>
 </view>

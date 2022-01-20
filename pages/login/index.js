@@ -1,7 +1,7 @@
 // pages/login/index.js
 const computedBehavior = require('miniprogram-computed').behavior;
-import { requestCaptcha, login } from '../../api/user';
-import { wxRedirectTo, wxNavigateBack } from '../../api/wechat';
+import { requestCaptcha, login, openID } from '../../api/user';
+import { navigateTo, redirectTo, wxNavigateBack } from '../../api/wechat';
 Page({
   behaviors: [computedBehavior],
   /**
@@ -15,7 +15,6 @@ Page({
     phone: '',
     code: '',
     sent: false,
-    // interval: 0,
   },
 
   computed: {
@@ -68,6 +67,7 @@ Page({
     }, 1000);
   },
   async submit() {
+    console.log('openID', openID());
     try {
       this.setData({
         submiting: true,
@@ -75,6 +75,7 @@ Page({
       const { status } = await login({
         phone: this.data.phone,
         code: this.data.code,
+        openID: openID(),
       });
       this.setData({
         submiting: false,
@@ -83,9 +84,9 @@ Page({
         if (this.method === 'back') {
           await wxNavigateBack();
         } else if (this.method === 'redirect') {
-          await wxNavigateTo({ url: `/pages/${this.url}/index` })
+          await navigateTo(this.url);
         } else {
-          await wxRedirectTo({ url: '/pages/index/index' });
+          await redirectTo('index');
         }
       }
     } catch (e) {

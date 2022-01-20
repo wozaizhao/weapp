@@ -1,12 +1,12 @@
 import config from '../config/config';
 import { updateUser } from './user';
 import { clientToken } from './jwt';
-import { wxRequest } from './wechat';
+import { wxRequest, wxUploadFile } from './wechat';
 import Toast from '../miniprogram_npm/@vant/weapp/toast/toast';
 
 export const request = async (options = {}) => {
   const { headers = {}, url } = options;
-  const token = (await clientToken({ action: 'get' })) || '';
+  const token = await clientToken({ action: 'get' });
   const Authorization = `Bearer ${token}`;
   const source = 'wechat';
   options.header = { Authorization, from: source, ...headers };
@@ -14,6 +14,17 @@ export const request = async (options = {}) => {
 
   const r = await wxRequest(options);
   return r.data;
+};
+
+export const upload = async (filePath) => {
+  const token = (await clientToken({ action: 'get' })) || '';
+  const Authorization = `Bearer ${token}`;
+  await wxUploadFile({
+    url: config.baseUrl + '/user/upload',
+    filePath,
+    name: 'file',
+    header: { Authorization },
+  });
 };
 
 export const endpointFetch = async (url, method, data, options = {}) => {

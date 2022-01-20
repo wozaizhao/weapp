@@ -1,2 +1,42 @@
-<!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<page-meta root-font-size="37.5px" />
+<wxs src="../../utils/util.wxs" module="util"></wxs>
+<view class="profile">
+  <van-cell-group>
+    <van-cell center title="头像" is-link link-type="navigateTo" url="/pages/profile/avatar">
+      <van-image
+        round
+        width="1.5rem"
+        height="1.5rem"
+        src="{{util.imgURL(activeUser.avatarUrl) || config.defaultAvatar}}"
+      />
+    </van-cell>
+    <van-cell
+      title="手机号"
+      is-link
+      value="{{activeUser.phone}}"
+      link-type="navigateTo"
+      url="/pages/profile/update?method=phone"
+    />
+    <van-cell
+      title="昵称"
+      is-link
+      value="{{activeUser.nickname}}"
+      link-type="navigateTo"
+      url="/pages/profile/update?method=nickname"
+    />
+    <van-cell
+      title="性别"
+      is-link
+      value="{{util.genderText(activeUser.gender)}}"
+      link-type="navigateTo"
+      url="/pages/profile/update?method=gender"
+    />
+    <van-cell
+      title="简介"
+      is-link
+      value="{{activeUser.bio || config.defaultBio}}"
+      link-type="navigateTo"
+      url="/pages/profile/update?method=bio"
+    />
+  </van-cell-group>
+</view>

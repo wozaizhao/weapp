@@ -1,8 +1,7 @@
 // pages/me/index.js
-import { activeUser, isLoggedIn } from '../../api/user';
-import { wxNavigateTo } from '../../api/wechat';
+import { activeUser, isLoggedIn, logout } from '../../api/user';
+import { wxNavigateTo, navigateTo } from '../../api/wechat';
 import config from '../../config/config';
-import { imgURL } from '../../utils/util';
 Page({
   /**
    * 页面的初始数据
@@ -13,19 +12,23 @@ Page({
     config: config,
   },
   toLogin() {
-    wxNavigateTo({ url: '/pages/login/index?method=back' })
+    wxNavigateTo({ url: '/pages/login/index?method=back' });
+  },
+  toProfile() {
+    navigateTo('profile', 'profile');
+  },
+  logout() {
+    logout();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     this.setData({
       isLoggedIn: isLoggedIn(),
       activeUser: activeUser(),
-    })
-  },
-  imgURL(key) {
-    return imgURL(key)
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -39,7 +42,7 @@ Page({
     this.setData({
       isLoggedIn: isLoggedIn(),
       activeUser: activeUser(),
-    })
+    });
   },
 
   /**

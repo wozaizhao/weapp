@@ -1,0 +1,19 @@
+var imgPrefix = 'https://img.wozaizhao.com/';
+var genderMale = 1;
+var genderFemale = 2;
+
+function imgURL(key) {
+  if (key) {
+      return imgPrefix + key;
+    }
+    return key;
+}
+
+function genderText(gender) {
+    return gender === genderMale ? '男' : gender === genderFemale ? '女' : '未知';
+};
+
+module.exports = {
+  imgURL: imgURL,
+  genderText: genderText
+}
