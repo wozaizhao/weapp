@@ -19,6 +19,10 @@ Page({
   },
   logout() {
     logout();
+    this.setData({
+      isLoggedIn: false,
+      activeUser: null,
+    });
   },
   /**
    * 生命周期函数--监听页面加载

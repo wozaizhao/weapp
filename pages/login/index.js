@@ -67,7 +67,6 @@ Page({
     }, 1000);
   },
   async submit() {
-    console.log('openID', openID());
     try {
       this.setData({
         submiting: true,

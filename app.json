@@ -5,7 +5,8 @@
     "pages/login/index",
     "pages/profile/avatar",
     "pages/profile/profile",
-    "pages/profile/update"
+    "pages/profile/update",
+    "pages/webview/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

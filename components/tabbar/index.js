@@ -4,6 +4,7 @@ import { wxRedirectTo } from '../../api/wechat';
 const pages = {
   home: '/pages/index/index',
   me: '/pages/me/index',
+  apps: '/pages/webview/index',
 };
 
 Component({
