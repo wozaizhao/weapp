@@ -1127,8 +1127,8 @@ function cut () {
     self.ctx.beginPath();
     adapt2d(self, 'fillStyle', mask);
     self.ctx.fillRect(0, 0, x, boundHeight);
-    self.ctx.fillRect(x, 0, width, y);
-    self.ctx.fillRect(x, y + height, width, boundHeight - y - height);
+    self.ctx.fillRect(x-2, 0, width+4, y);
+    self.ctx.fillRect(x-2, y + height, width+4, boundHeight - y - height);
     self.ctx.fillRect(x + width, 0, boundWidth - x - width, boundHeight);
     self.ctx.fill();
 

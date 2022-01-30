@@ -33,21 +33,28 @@ Page({
       phone: '',
     });
   },
-  async onGetCaptcha() {
-    this.startCountDown();
-    try {
-      const { status } = await requestCaptcha({
-        phone: this.data.phone,
-        from: 'wechat',
-      });
-      if (status === 'success') {
-        this.setData({
-          sent: true,
+  onGetCaptcha() {
+    const TencentCaptcha = this.selectComponent('#captcha');
+    const captcha = new TencentCaptcha(async (res) => {
+      try {
+        const { status } = await requestCaptcha({
+          phone: this.data.phone,
+          openID: openID(),
+          ticket: res.ticket,
+          randstr: res.randstr,
         });
+        if (status === 'success') {
+          this.setData({
+            sent: true,
+          });
+          this.startCountDown();
+        }
+      } catch (e) {
+        console.log('requestCaptcha catch error: ', e);
       }
-    } catch (e) {
-      console.log('requestCaptcha catch error: ', e);
-    }
+    });
+
+    captcha.show();
   },
   startCountDown() {
     this.setData({

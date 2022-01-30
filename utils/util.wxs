@@ -4,9 +4,13 @@ var genderFemale = 2;
 
 function imgURL(key) {
   if (key) {
+    if(key.indexOf('http') > -1) {
+      return key;
+    } else {
       return imgPrefix + key;
     }
-    return key;
+  }
+  return key;
 }
 
 function genderText(gender) {

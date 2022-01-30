@@ -1,13 +1,18 @@
 import WeCropper from '../../plugins/we-cropper/we-cropper.js';
 import config from '../../config/config.js';
 import { upload } from '../../api/request';
+import { updateUserInfo, requestCurrentUser } from '../../api/user';
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 
 const device = wx.getSystemInfoSync();
 const width = device.windowWidth;
-const height = device.windowHeight - 50;
+const height = device.windowHeight - 100;
 
 Page({
   data: {
+    avatar: '',
+    config: config,
+    mode: 'preview',
     cropperOpt: {
       id: 'cropper',
       targetId: 'targetCropper',
@@ -24,7 +29,7 @@ Page({
       },
       boundStyle: {
         color: config.primaryColor,
-        mask: 'rgba(0,0,0,0.8)',
+        mask: '#f8f8f8',
         lineWidth: 1,
       },
     },
@@ -41,11 +46,27 @@ Page({
   getCropperImage() {
     this.cropper
       .getCropperImage()
-      .then((src) => {
-        console.log(src);
-        upload(src).then((res) => {
-          console.log(res);
+      .then(async (src) => {
+        Toast.loading({
+          message: '上传中...',
+          forbidClick: true,
         });
+        const { status: uploadStatus, data: uploadData } = await upload(src);
+        if (uploadStatus === 'success') {
+          const { status, data } = await updateUserInfo({ avatarUrl: uploadData.key });
+          if (status === 'success' && data) {
+            // saveSuccess();
+            await requestCurrentUser();
+            this.setData({
+              mode: 'preview',
+              avatar: uploadData.key,
+            });
+          } else {
+            // saveFail();
+          }
+        } else {
+          // saveFail();
+        }
         // wx.previewImage({
         //   current: '', // 当前显示图片的http链接
         //   urls: [src], // 需要预览的图片http链接列表
@@ -68,12 +89,19 @@ Page({
       success(res) {
         const src = res.tempFilePaths[0];
         //  获取裁剪图片资源后，给data添加src属性及其值
-
+        self.setData({
+          mode: 'editing',
+        });
         self.cropper.pushOrign(src);
       },
     });
   },
   onLoad(option) {
+    if (option.avatar) {
+      this.setData({
+        avatar: option.avatar,
+      });
+    }
     const { cropperOpt } = this.data;
 
     cropperOpt.boundStyle.color = config.primaryColor;

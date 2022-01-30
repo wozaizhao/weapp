@@ -3,6 +3,7 @@
 
 page {
   font-size: 12px;
+  background: #f8f8f8;
   --blue: #0e7490;
   --button-primary-background-color: var(--blue);
   --button-primary-border-color: var(--blue);

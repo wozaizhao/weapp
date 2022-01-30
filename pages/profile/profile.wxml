@@ -2,7 +2,7 @@
 <wxs src="../../utils/util.wxs" module="util"></wxs>
 <view class="profile">
   <van-cell-group>
-    <van-cell center title="头像" is-link link-type="navigateTo" url="/pages/profile/avatar">
+    <van-cell center title="头像" is-link link-type="navigateTo" url="/pages/profile/avatar?avatar={{activeUser.avatarUrl}}">
       <van-image
         round
         width="1.5rem"
@@ -39,4 +39,8 @@
       url="/pages/profile/update?method=bio"
     />
   </van-cell-group>
+  <view class="p-2">
+    <van-button wx:if="{{canIUseGetUserProfile}}" plain round block type="primary" bind:click="getUserProfile">一键设置为微信的头像和昵称</van-button>
+    <van-button wx:else open-type="getUserInfo" plain round block type="info" bindgetuserinfo="getUserInfo">一键设置为微信的头像和昵称1</van-button>
+  </view>
 </view>

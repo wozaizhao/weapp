@@ -19,12 +19,13 @@ export const request = async (options = {}) => {
 export const upload = async (filePath) => {
   const token = (await clientToken({ action: 'get' })) || '';
   const Authorization = `Bearer ${token}`;
-  await wxUploadFile({
+  const r = await wxUploadFile({
     url: config.baseUrl + '/user/upload',
     filePath,
     name: 'file',
     header: { Authorization },
   });
+  return JSON.parse(r.data);
 };
 
 export const endpointFetch = async (url, method, data, options = {}) => {

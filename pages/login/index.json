@@ -1,5 +1,7 @@
 {
+  "navigationBarTitleText": "登录",
   "usingComponents": {
+    "captcha": "plugin://captcha-plugin/captcha",
     "van-field": "@vant/weapp/field/index",
     "van-button": "@vant/weapp/button/index",
     "van-cell-group": "@vant/weapp/cell-group/index",

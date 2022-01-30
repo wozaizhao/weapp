@@ -15,5 +15,11 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "plugins": {
+    "captcha-plugin": {
+      "version": "latest",
+      "provider": "wx3acdde82f7cf0e6e"
+    }
+  }
 }

@@ -1,5 +1,6 @@
 // pages/profile/profile.js
-import { activeUser } from '../../api/user';
+import { activeUser, updateUserInfo, requestCurrentUser } from '../../api/user';
+import { wxGetUserProfile } from '../../api/wechat';
 import config from '../../config/config';
 
 Page({
@@ -9,15 +10,46 @@ Page({
   data: {
     activeUser: null,
     config: config,
+    canIUseGetUserProfile: false,
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     this.setData({
       activeUser: activeUser(),
     });
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true,
+      });
+    }
+  },
+  async getUserProfile() {
+    try {
+      const { userInfo } = await wxGetUserProfile({ desc: '设置个人信息' });
+      this.setAvatarNickname(userInfo.avatarUrl, userInfo.nickName);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+  getUserInfo(e) {
+    const { userInfo } = e.detail;
+    this.setAvatarNickname(userInfo.avatarUrl, userInfo.nickName);
+  },
+  async setAvatarNickname(avatar, nickname) {
+    try {
+      await updateUserInfo({
+        avatarUrl: avatar,
+        nickname,
+      });
+      await requestCurrentUser();
+      this.setData({
+        activeUser: activeUser(),
+      });
+    } catch (e) {
+      console.log(e);
+    }
   },
 
   /**

@@ -45,4 +45,5 @@
     </view>
   </view>
   <van-toast id="van-toast" />
+  <captcha id='captcha'/>
 </view>

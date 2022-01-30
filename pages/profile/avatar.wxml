@@ -1,15 +1,12 @@
+<page-meta root-font-size="37.5px" />
+<wxs src="../../utils/util.wxs" module="util"></wxs>
 <import src="../../plugins/we-cropper/we-cropper.wxml" />
-
 <view class="cropper-wrapper">
-  <template is="we-cropper" data="{{...cropperOpt}}" />
+  <template wx:if="{{mode === 'editing'}}" is="we-cropper" data="{{...cropperOpt}}" />
+  <van-image wx:else width="750rpx" height="750rpx" src="{{util.imgURL(avatar) || config.defaultAvatar}}" />
   <view class="cropper-buttons" style="color: {{cropperOpt.boundStyle.color}}">
-    <view class="upload btn" bindtap="uploadTap"> 上传图片 </view>
-    <view
-      class="getCropperImage btn"
-      style="background-color: {{cropperOpt.boundStyle.color}};"
-      bindtap="getCropperImage"
-    >
-      生成图片
-    </view>
+    <van-button wx:if="{{mode === 'preview'}}" plain round block type="primary" bind:click="uploadTap">更改</van-button>
+    <van-button wx:elif="{{mode === 'editing'}}" round block type="primary" bind:click="getCropperImage">保存</van-button>
   </view>
+  <van-toast id="van-toast" />
 </view>

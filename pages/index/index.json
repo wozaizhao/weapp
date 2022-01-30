@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "我在找",
   "usingComponents": {
     "tabbar": "../../components/tabbar/index"
   }

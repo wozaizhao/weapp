@@ -2,7 +2,7 @@ import { endpointFetch } from './request';
 import { clientToken } from './jwt';
 
 export const requestCaptcha = async (params) => {
-  const endpoint = '/captcha';
+  const endpoint = '/wechat/captcha';
   const r = await endpointFetch(endpoint, 'get', params);
   return r;
 };
@@ -16,6 +16,12 @@ export const login = async (data) => {
 export const shortcutLogin = async (data) => {
   const endpoint = '/shortcutLogin';
   const r = await endpointFetch(endpoint, 'post', data);
+  return r;
+};
+
+export const updateUserInfo = async (data) => {
+  const endpoint = '/user/edit';
+  const r = await endpointFetch(endpoint, 'put', data);
   return r;
 };
 
@@ -42,4 +48,23 @@ export const logout = () => {
 
 export const openID = () => {
   return getApp().globalData.openID;
+};
+
+export const requestCurrentUser = async () => {
+  const token = clientToken({ action: 'get' });
+  let user = undefined;
+
+  if (token) {
+    const endpoint = '/user/currentUser';
+    const { status, data } = await endpointFetch(endpoint, 'get');
+    // If there is a token error, then delete it and force login
+    if (status == 'error') {
+      logout();
+    }
+    user = data.user;
+    if (user) {
+      updateUser(user);
+    }
+  }
+  return user;
 };

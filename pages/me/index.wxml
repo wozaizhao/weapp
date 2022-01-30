@@ -15,12 +15,12 @@
       <text class="text-base text-gray-900" bind:tap="toLogin">去登录</text>
     </view>
   </view>
-  <van-cell-group class="mt-1">
+  <van-cell-group custom-class="mt-1">
     <van-cell title="单元格" is-link value="内容" />
     <van-cell title="单元格" is-link value="内容" />
     <van-cell title="单元格" is-link value="内容" />
   </van-cell-group>
-  <van-cell-group class="mt-1">
+  <van-cell-group custom-class="mt-1">
     <van-cell title="单元格" is-link value="内容" />
     <van-cell title="单元格" is-link value="内容" />
     <van-cell title="单元格" is-link value="内容" />

@@ -2,6 +2,7 @@
   "navigationBarTitleText": "个人信息",
   "usingComponents": {
     "van-image": "@vant/weapp/image/index",
+    "van-button": "@vant/weapp/button/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-cell-group": "@vant/weapp/cell-group/index"
   }
