@@ -3,10 +3,6 @@ import { wxLogin, code2Session } from './api/wechat';
 import { shortcutLogin } from './api/user';
 App({
   async onLaunch() {
-    // 展示本地存储能力
-    // const logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
     try {
       const { code } = await wxLogin();
       const { code: resCode, data } = await code2Session({ code });
@@ -21,6 +17,5 @@ App({
   globalData: {
     userInfo: null,
     openID: null,
-    // sessionKey: null,
   },
 });

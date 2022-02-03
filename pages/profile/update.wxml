@@ -13,20 +13,6 @@
         </van-cell>
       </van-cell-group>
     </van-radio-group>
-    <!-- <van-radio-group wx:else-if="method === 'gender'" model:value="{{gender}}">
-      <van-cell-group>
-        <van-cell title="男" clickable bind:tap="gender = '1'">
-          <template #right-icon>
-            <van-radio name="1" />
-          </template>
-        </van-cell>
-        <van-cell title="女" clickable bind:tap="gender = '2'">
-          <template #right-icon>
-            <van-radio name="2" />
-          </template>
-        </van-cell>
-      </van-cell-group>
-    </van-radio-group> -->
     <van-field wx:elif="{{method === 'bio'}}" model:value="{{bio}}" clearable placeholder="请输入简介" />
   </van-cell-group>
   <view class="p-2">
