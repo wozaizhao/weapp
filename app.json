@@ -6,7 +6,8 @@
     "pages/profile/avatar",
     "pages/profile/profile",
     "pages/profile/update",
-    "pages/webview/index"
+    "pages/webview/index",
+    "pages/profile/settings"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",

@@ -1,7 +1,10 @@
 <page-meta root-font-size="37.5px" />
 <wxs src="../../utils/util.wxs" module="util"></wxs>
 <view class="profile page {{$state.theme}}" style="{{ $state.theme === 'dark' ? darkStyles : styles }}">
-  <view wx:if="{{isLoggedIn}}" class="flex items-center py-2 px-3" bind:tap="toProfile">
+  <view class="absolute top-2 right-2" data-url="/pages/profile/settings" bind:tap="goToPage">
+    <van-icon name="setting-o" size="24" color="{{config.primaryColor}}" />
+  </view>
+  <view wx:if="{{isLoggedIn}}" class="flex items-center py-2 px-3" data-url="/pages/profile/profile" bind:tap="goToPage">
     <van-image round width="2rem" height="2rem" src="{{util.imgURL(activeUser.avatarUrl) || config.defaultAvatar}}" />
     <view class="ml-2 w-20 flex-1 flex flex-col">
       <text class="text-base text-gray-900 truncate">{{ activeUser.nickname }}</text>
@@ -12,7 +15,7 @@
   <view wx:else class="flex items-center py-2 px-3">
     <van-image round width="2rem" height="2rem" src="{{config.defaultAvatar}}" />
     <view class="ml-2 w-20 flex-1 flex flex-col">
-      <text class="text-base text-gray-900" bind:tap="toLogin">去登录</text>
+      <text class="text-base text-black dark:text-white" data-url="/pages/login/index" bind:tap="goToPage">去登录</text>
     </view>
   </view>
   <view class="mt-1">

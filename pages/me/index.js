@@ -1,7 +1,6 @@
 // pages/me/index.js
 // const app = getApp();
 import { activeUser, isLoggedIn, logout } from '../../api/user';
-import { wxNavigateTo, navigateTo } from '../../api/wechat';
 import config from '../../config/config';
 const darkStyles = `
   --cell-background-color: #1c1c1c;
@@ -19,12 +18,6 @@ Page({
     config: config,
     darkStyles: darkStyles,
     styles: '',
-  },
-  toLogin() {
-    wxNavigateTo({ url: '/pages/login/index?method=back' });
-  },
-  toProfile() {
-    navigateTo('profile', 'profile');
   },
   logout() {
     logout();

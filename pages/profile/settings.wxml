@@ -1,0 +1,15 @@
+<page-meta root-font-size="37.5px" />
+<view class="settings page {{$state.theme}}" style="{{ $state.theme === 'dark' ? darkStyles : styles }}">
+  <view class="pt-1">
+    <van-cell-group inset>
+      <van-cell center title="深色模式">
+        <van-switch checked="{{ checked }}" bind:change="onChange" active-color="#82cb72" size="24" />
+      </van-cell>
+      <van-cell title="单元格" is-link value="内容" />
+      <van-cell title="单元格" is-link value="内容" />
+    </van-cell-group>
+  </view>
+  <view class="p-2">
+    <van-button round block type="primary">按钮</van-button>
+  </view>
+</view>

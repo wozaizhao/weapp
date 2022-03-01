@@ -8,11 +8,11 @@
     "bgColorBottom": "#f7f8fa"
   },
   "dark": {
-    "navBgColor": "#1c1c1c",
+    "navBgColor": "#000",
     "navTxtStyle": "white",
-    "bgColor": "#1c1c1c",
+    "bgColor": "#000",
     "bgTxtStyle": "dark",
-    "bgColorTop": "#1c1c1c",
-    "bgColorBottom": "#1c1c1c"
+    "bgColorTop": "#000",
+    "bgColorBottom": "#000"
   }
 }

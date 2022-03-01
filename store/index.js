@@ -1,13 +1,17 @@
 import Store from '../plugins/wxministore/index.js';
+import { wxNavigateTo, wxRedirectTo } from '../api/wechat';
 export default new Store({
   state: {
     theme: 'light', // 系统主题色 dark | light
   },
   methods: {
-    goAnyWhere(e) {
-      wx.navigateTo({
-        url: e.currentTarget.dataset.url,
-      });
+    goToPage(e) {
+      const { url, replace } = e.currentTarget.dataset;
+      if (replace) {
+        wxRedirectTo({ url });
+      } else {
+        wxNavigateTo({ url });
+      }
     },
   },
   pageListener: {
