@@ -3,7 +3,7 @@
 
 page {
   font-size: 12px;
-  background: #f8f8f8;
+  /* background: #f8f8f8; */
   --blue: #0e7490;
   --button-primary-background-color: var(--blue);
   --button-primary-border-color: var(--blue);
@@ -14,3 +14,27 @@ page {
   --tabbar-item-active-color: var(--blue);
 
 }
+
+.page{
+  background: #f7f8fa;
+  min-height: 100vh;
+}
+
+.page.dark {
+  background: #000;
+}
+
+.page.dark .van-hairline--bottom:after,
+.page.dark .van-hairline--left:after,
+.page.dark .van-hairline--right:after,
+.page.dark .van-hairline--surround:after,
+.page.dark .van-hairline--top-bottom:after,
+.page.dark .van-hairline--top:after,
+.page.dark .van-hairline:after {
+  border-color: #3e3e3e!important;
+}
+
+.page.dark .van-cell:after {
+  border-color: #3e3e3e!important;
+}
+

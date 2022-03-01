@@ -1,15 +1,24 @@
 // pages/me/index.js
+// const app = getApp();
 import { activeUser, isLoggedIn, logout } from '../../api/user';
 import { wxNavigateTo, navigateTo } from '../../api/wechat';
 import config from '../../config/config';
+const darkStyles = `
+  --cell-background-color: #1c1c1c;
+  --cell-text-color: #fff;
+`;
+
 Page({
   /**
    * 页面的初始数据
    */
+  useStore: true,
   data: {
     isLoggedIn: false,
     activeUser: null,
     config: config,
+    darkStyles: darkStyles,
+    styles: '',
   },
   toLogin() {
     wxNavigateTo({ url: '/pages/login/index?method=back' });

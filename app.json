@@ -9,11 +9,15 @@
     "pages/webview/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTextStyle": "@navTxtStyle",
+    "backgroundColor": "@bgColor",
+    "backgroundTextStyle": "@bgTxtStyle",
+    "backgroundColorTop": "@bgColorTop",
+    "backgroundColorBottom": "@bgColorBottom"
   },
+  "darkmode": true,
+  "themeLocation": "theme.json",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "plugins": {

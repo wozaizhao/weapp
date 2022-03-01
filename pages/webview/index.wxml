@@ -1,1 +1,1 @@
-<web-view src="{{webUrl}}?openid={{openID}}" />
+<web-view bindmessage="onMessage" src="{{webUrl}}?openid={{openID}}" />

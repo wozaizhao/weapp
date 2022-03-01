@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我在找",
   "usingComponents": {
-    "tabbar": "../../components/tabbar/index"
+    "tabbar": "../../components/tabbar/index",
+    "van-button": "@vant/weapp/button/index"
   }
 }

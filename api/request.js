@@ -38,10 +38,10 @@ export const endpointFetch = async (url, method, data, options = {}) => {
   if (r.message) {
     Toast(r.message);
   }
-  if (r.data.user) {
+  if (r.data && r.data.user) {
     updateUser(r.data.user);
   }
-  if (r.data.token) {
+  if (r.data && r.data.token) {
     clientToken({ action: 'set', token: r.data.token });
   }
   return r;

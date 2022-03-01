@@ -18,6 +18,9 @@ Page({
       openID: openID(),
     });
   },
+  onMessage(e) {
+    console.log('onMessage', e);
+  },
 
   /**
    * Lifecycle function--Called when page is initially rendered

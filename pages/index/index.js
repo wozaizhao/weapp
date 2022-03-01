@@ -4,8 +4,14 @@ import { decryptUserInfo } from '../../api/wechat';
 // 获取应用实例
 const app = getApp();
 
+const darkStyle = `
+  --button-default-color: #f2f3f5;
+`;
+
 Page({
+  useStore: true,
   data: {
+    styles: '',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -25,6 +31,18 @@ Page({
         canIUseGetUserProfile: true,
       });
     }
+    // app.watchTheme((theme) => {
+    //   console.log('theme changed: ', theme);
+    //   if (theme === 'dark') {
+    //     this.setData({
+    //       styles: darkStyle,
+    //     });
+    //   } else {
+    //     this.setData({
+    //       styles: '',
+    //     });
+    //   }
+    // });
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗

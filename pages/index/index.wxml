@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="page {{$state.theme}}" style="{{styles}}">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
@@ -14,6 +14,9 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+  </view>
+  <view >
+    <van-button type="primary">默认按钮</van-button>
   </view>
   <tabbar active="home"></tabbar>
   <van-toast id="van-toast" />

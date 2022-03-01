@@ -15,8 +15,10 @@
     </van-radio-group>
     <van-field wx:elif="{{method === 'bio'}}" model:value="{{bio}}" clearable placeholder="请输入简介" />
   </van-cell-group>
-  <view class="p-2">
-    <van-button round block type="primary" bind:click="save">保存</van-button>
+  <view class="fixed w-full bottom-5">
+    <view class="p-2">
+      <van-button round block type="primary" bind:click="save">保存</van-button>
+    </view>
   </view>
   <van-toast id="van-toast" />
 </view>

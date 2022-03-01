@@ -1,5 +1,6 @@
 // components/tabbar/index.js
-import { wxRedirectTo } from '../../api/wechat';
+// const app = getApp();
+import { wxNavigateTo } from '../../api/wechat';
 
 const pages = {
   home: '/pages/index/index',
@@ -7,7 +8,12 @@ const pages = {
   apps: '/pages/webview/index',
 };
 
+const darkStyles = `
+  --tabbar-background-color: #1c1c1c;
+`;
+
 Component({
+  useStore: true,
   /**
    * Component properties
    */
@@ -18,7 +24,22 @@ Component({
   /**
    * Component initial data
    */
-  data: {},
+  data: {
+    styles: '',
+    darkStyles: darkStyles,
+  },
+  lifetimes: {
+    attached: function () {},
+    detached: function () {
+      console.log('detached');
+      // 在组件实例被从页面节点树移除时执行
+    },
+  },
+  // onLoad() {
+  //   getApp().watchTheme((theme) => {
+  //     console.log('theme changed: ', theme);
+  //   });
+  // },
 
   /**
    * Component methods
@@ -27,7 +48,7 @@ Component({
     onChange(e) {
       if (e.detail !== this.data.active) {
         const url = pages[e.detail] || pages['home'];
-        wxRedirectTo({ url });
+        wxNavigateTo({ url });
       }
     },
   },
