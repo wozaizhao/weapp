@@ -9,6 +9,7 @@ const width = device.windowWidth;
 const height = device.windowHeight - 100;
 
 Page({
+  useStore: true,
   data: {
     avatar: '',
     config: config,

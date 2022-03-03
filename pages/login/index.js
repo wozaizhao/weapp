@@ -1,8 +1,16 @@
 // pages/login/index.js
 const computedBehavior = require('miniprogram-computed').behavior;
 import { requestCaptcha, login, openID } from '../../api/user';
-import { navigateTo, redirectTo, wxNavigateBack } from '../../api/wechat';
+import { wxNavigateTo, wxRedirectTo, wxNavigateBack } from '../../api/wechat';
+const darkStyles = `
+  --cell-background-color: transparent;
+  --cell-text-color: #fff;
+  --field-input-text-color: #fff;
+`;
+const privacyWebUrl = 'https://img.wozaizhao.com/policy/1.0/privacy_policy.html?20020302';
+const serviceWebUrl = 'https://img.wozaizhao.com/policy/1.0/terms_of_service.html?20020302';
 Page({
+  useStore: true,
   behaviors: [computedBehavior],
   /**
    * 页面的初始数据
@@ -15,6 +23,9 @@ Page({
     phone: '',
     code: '',
     sent: false,
+    darkStyles: darkStyles,
+    serviceUrl: `/pages/webview/index?url=${encodeURIComponent(serviceWebUrl)}`,
+    privacyUrl: `/pages/webview/index?url=${encodeURIComponent(privacyWebUrl)}`,
   },
 
   computed: {
@@ -90,9 +101,9 @@ Page({
         if (this.method === 'back') {
           await wxNavigateBack();
         } else if (this.method === 'redirect') {
-          await navigateTo(this.url);
+          await wxNavigateTo({ url: this.url });
         } else {
-          await redirectTo('index');
+          await wxRedirectTo({ url: '/pages/index/index' });
         }
       }
     } catch (e) {

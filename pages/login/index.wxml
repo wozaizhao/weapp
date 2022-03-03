@@ -1,5 +1,5 @@
 <page-meta root-font-size="37.5px" />
-<view class="w-screen h-screen bg-white pt-5">
+<view class="login page pt-5 {{$state.theme}}" style="{{ $state.theme === 'dark' ? darkStyles : '' }}">
   <van-cell-group inset border="{{ false }}">
     <van-field
       model:value="{{ phone }}"
@@ -38,9 +38,9 @@
   <view class="fixed w-full bottom-0 text-center text-gray-400">
     <view class="p-2">
       <text>登录注册即代表你同意 我在找</text>
-      <text class="text-cyan-700">《服务协议》</text>
+      <text class="text-cyan-700" data-url="{{serviceUrl}}" bind:tap="goToPage">《服务协议》</text>
       与
-      <text class="text-cyan-700">《隐私政策》</text>
+      <text class="text-cyan-700" data-url="{{privacyUrl}}" bind:tap="goToPage">《隐私政策》</text>
       <view>未注册用户将直接为你创建帐户</view>
     </view>
   </view>

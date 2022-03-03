@@ -1,17 +1,12 @@
 // pages/profile/settings.js
 const app = getApp();
-const darkStyles = `
-  --cell-background-color: #1c1c1c;
-  --cell-text-color: #fff;
-`;
+
 Page({
   useStore: true,
   /**
    * Page initial data
    */
   data: {
-    darkStyles: darkStyles,
-    styles: '',
     checked: false,
   },
 

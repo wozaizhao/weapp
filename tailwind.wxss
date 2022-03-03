@@ -91,6 +91,9 @@
 .align-middle {
   vertical-align: middle;
 }
+.justify-end	{
+  justify-content: flex-end;
+}
 .text-base {
   font-size: 0.48rem;
 }

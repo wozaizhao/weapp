@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="page {{$state.theme}}" style="{{styles}}">
+<view class="page {{$state.theme}}">
   <view class="userinfo">
     <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">

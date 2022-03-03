@@ -2,6 +2,7 @@ const imgDomain = 'https://img.wozaizhao.com/';
 
 const config = {
   baseUrl: 'https://gate.wozaizhao.com',
+  webUrl: 'https://dev.wozaizhao.com/',
   // baseUrl: 'http://127.0.0.1:9090',
   imgPrefix: imgDomain,
   defaultAvatar: imgDomain + 'Fk0nSk_9_ck8vGdrt-fw6kgurGr2',

@@ -4,14 +4,9 @@ import { decryptUserInfo } from '../../api/wechat';
 // 获取应用实例
 const app = getApp();
 
-const darkStyle = `
-  --button-default-color: #f2f3f5;
-`;
-
 Page({
   useStore: true,
   data: {
-    styles: '',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,

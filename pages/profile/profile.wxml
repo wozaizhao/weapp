@@ -1,6 +1,6 @@
 <page-meta root-font-size="37.5px" />
 <wxs src="../../utils/util.wxs" module="util"></wxs>
-<view class="profile">
+<view class="profile page {{$state.theme}}" style="{{ $state.theme === 'dark' ? $state.darkStyles : '' }}">
   <van-cell-group>
     <van-cell center title="头像" is-link link-type="navigateTo" url="/pages/profile/avatar?avatar={{activeUser.avatarUrl}}">
       <van-image

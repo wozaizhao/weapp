@@ -2,10 +2,6 @@
 // const app = getApp();
 import { activeUser, isLoggedIn, logout } from '../../api/user';
 import config from '../../config/config';
-const darkStyles = `
-  --cell-background-color: #1c1c1c;
-  --cell-text-color: #fff;
-`;
 
 Page({
   /**
@@ -16,8 +12,6 @@ Page({
     isLoggedIn: false,
     activeUser: null,
     config: config,
-    darkStyles: darkStyles,
-    styles: '',
   },
   logout() {
     logout();

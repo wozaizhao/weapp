@@ -3,6 +3,12 @@ import { wxNavigateTo, wxRedirectTo } from '../api/wechat';
 export default new Store({
   state: {
     theme: 'light', // 系统主题色 dark | light
+    darkStyles: `
+      --button-default-color: #f2f3f5;
+      --cell-background-color: #1c1c1c;
+      --cell-text-color: #fff;
+      --field-input-text-color: #fff;
+    `,
   },
   methods: {
     goToPage(e) {

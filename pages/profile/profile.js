@@ -4,6 +4,7 @@ import { wxGetUserProfile } from '../../api/wechat';
 import config from '../../config/config';
 
 Page({
+  useStore: true,
   /**
    * 页面的初始数据
    */

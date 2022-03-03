@@ -1,12 +1,13 @@
 // pages/webview/index.js
-import { openID } from '../../api/user';
-
+import { openID, requestCurrentUser } from '../../api/user';
+import config from '../../config/config';
+import { clientToken } from '../../api/jwt';
 Page({
   /**
    * Page initial data
    */
   data: {
-    webUrl: 'https://dev.wozaizhao.com/',
+    webUrl: '',
     openID: '',
   },
 
@@ -14,12 +15,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    const { url } = options;
     this.setData({
       openID: openID(),
+      webUrl: url ? decodeURIComponent(url) : config.webUrl,
     });
   },
   onMessage(e) {
     console.log('onMessage', e);
+    clientToken({ action: 'set', token: e.detail.data[0].token });
+    requestCurrentUser().then((user) => {
+      console.log('user', user);
+    });
   },
 
   /**

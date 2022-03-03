@@ -1,7 +1,7 @@
 <page-meta root-font-size="37.5px" />
 <wxs src="../../utils/util.wxs" module="util"></wxs>
 <import src="../../plugins/we-cropper/we-cropper.wxml" />
-<view class="cropper-wrapper">
+<view class="cropper-wrapper page {{$state.theme}}" style="{{ $state.theme === 'dark' ? $state.darkStyles : '' }}">
   <template wx:if="{{mode === 'editing'}}" is="we-cropper" data="{{...cropperOpt}}" />
   <van-image wx:else width="750rpx" height="750rpx" src="{{util.imgURL(avatar) || config.defaultAvatar}}" />
   <view class="cropper-buttons" style="color: {{cropperOpt.boundStyle.color}}">

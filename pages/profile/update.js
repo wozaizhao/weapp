@@ -13,6 +13,7 @@ const methods = {
 // const columns = ['男', '女'];
 
 Page({
+  useStore: true,
   /**
    * 页面的初始数据
    */
